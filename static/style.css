@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0abde3;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links .menu {
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+}
+
+.nav-links a::before, .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #0abde3;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.nav-links a::after {
+    top: auto;
+    bottom: 0;
+}
+
+.nav-links a:hover::before, .nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+#checkbox_toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 80px;
+        background-color: #333;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        transition: all 0.5s ease;
+        transform: translateX(100%);
+    }
+
+    .nav-links .menu {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        padding: 20px;
+    }
+
+    .nav-links a {
+        font-size: 24px;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+.content {
+    padding-top: 150px;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 24px;
+} 
